@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load humanize %}
+{% block content %}
+<h1>Orders</h1>
+<div>
+  <dl>
+    {% for order in orders %}
+      <dt>
+        <big>{{order.name}}</big>
+        - {{order.amount | intcomma}} {{order.currency}}
+      </dt>
+      <dd>
+        {{order.timestamp}} - {{order.description}}
+      </dd>
+    {% endfor %}
+  </dl>
+</div>
+<p>
+  Go to 
+  <a href="{% url 'app:store' %}">store</a>
+</p>
+{% endblock content %}

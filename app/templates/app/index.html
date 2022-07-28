@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="home">
+  <p>Go to</p>
+  <p>
+    <a href="{% url 'app:store' %}">store</a>
+  </p>
+  <p>or view</p>
+  <p><a href="{% url 'app:orders' %}">orders</a></p>
+</div>
+{% endblock content %}

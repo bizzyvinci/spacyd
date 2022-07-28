@@ -1,0 +1,38 @@
+{% load static %}
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}">
+  </head>
+  <body>
+    <div id="navbar">
+      {% block navbar %}
+        <nav class="navbar">
+          {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'users:logout' %}">Logout</a>
+            {{user.username}}
+          {% else %}
+            <a class="nav-link" href="{% url 'users:login' %}">Login</a>
+            |
+            <a class="nav-link" href="{% url 'users:register' %}">Register</a> 
+          {% endif %}
+        </nav>
+      {% endblock navbar %}  
+    </div>
+    <div id="messages">
+      {% block messages %}
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% endblock messages %}
+    </div>
+    <div id="content">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load humanize %}
+{% block content %}
+<div>
+  <h2>Accepting payment for {{item.name}}</h2>
+  <h3>Send {{item.price | intcomma}} {{item.currency}} and click on Payment made</h3>
+  <h4>{{account.type}}: {{account.id}}</h4>
+  <h4>Bank: {{account.bank}}</h4>
+  <h4>Number: {{account.number}}</h4>
+  <h4>Name: {{account.name}}</h4>
+</div>
+<div>
+  <form action="{% url 'app:paid'%}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="currency" value={{item.currency}}>
+    <input type="hidden" name="amount" value={{item.price}}>
+    <input type="hidden" name="virtual_account_id" value={{account.id}}>
+    <input type="hidden" name="item_id" value={{item.id}}>
+    <input type="submit" value="Payment made" class="submit">
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,43 @@
+body {
+  background-color: white;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+dt {
+  margin-top: 15px;
+}
+dd {
+  margin-bottom: 15px;
+}
+dt a {
+  font-weight: bold;
+}
+
+#content {
+  text-align: center;
+}
+
+content p {
+  font-style: italic;
+}
+
+.home p {
+  font-size: larger;
+  font-weight: bold;
+}
+
+#messages li {
+  background-color: orange;
+}
+
+form .submit {
+  background-color: darkblue;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border-width: 0;
+}
